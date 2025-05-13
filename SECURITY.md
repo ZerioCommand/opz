@@ -1,21 +1,14 @@
-# Security Policy
+# Политика безопасности
 
-## Supported Versions
+## Поддерживаемые версии Windows
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+| Версия   | Поддерживается       |
+|---------|----------------------|
+| Windows 10   | :white_check_mark:|
+|  Windows 8.1  | Частично|
+| Windows 7  | :x:|
+|  Windows 11 | :white_check_mark:|
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
-
-## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+## Сообщение о уязвимости
+Для отправки информации об уязвимостях обращайтесь по адресу: [https://discord.gg/Jy98UdbRvV](https://discord.gg/Jy98UdbRvV)  
+Все сообщения будут рассмотрены в кратчайшие сроки. После подтверждения уязвимости мы свяжемся с вами и сообщим о дальнейших действиях. Если уязвимость будет признана корректной, она будет исправлена в ближайшем обновлении, и вы получите должное признание за свой вклад.
