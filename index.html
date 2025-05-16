@@ -6,6 +6,16 @@
     <link rel="icon" href="https://www.dropbox.com/scl/fi/op1jl3uurbmvunlm32zxa/.png?rlkey=sz26xx4hctdr4ztewciqpry1h&st=bgnsm9s6&dl=1 " type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #1a3d6d;
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.2s ease-out;
+}
         #google_translate_element {
             position: fixed;
             top: 10px;
@@ -240,6 +250,7 @@
             transform: rotate(180deg);
         }
     </style>
+    
 </head>
 <body>
 
@@ -252,6 +263,7 @@
         <li><a href="#список-функций">📜 Полный список функций</a></li>
         <li><a href="#после-завершения">🏁 После завершения</a></li>
         <li><a href="#faq">❓ FAQ</a></li>
+        <li><a href="#совместимость">🛠️ Тестирование совместимости</a></li>
         <li><a href="#как-использовать">🛠️ Как использовать</a></li>
         <li><a href="#лицензия">📜 Лицензия</a></li>
     </ul>
@@ -530,6 +542,33 @@
             </details>
         </section>
 
+        <section id="совместимость">
+    <h2>🛠️ Тестирование совместимости</h2>
+    <p>Скрипт протестирован на следующих версиях Windows:</p>
+    <ul>
+        <li><strong>Windows 10</strong> (редакции: Home, Pro)</li>
+        <li><strong>Windows 11</strong> (все редакции)</li>
+        <li><strong>Windows 8.1</strong></li>
+    </ul>
+
+    <div class="note">
+        ⚠️ <strong>ВНИМАНИЕ:</strong> На некоторых системах (например, с минимальной установкой или виртуальных машинах) отдельные функции могут работать иначе или быть недоступны.
+    </div>
+
+    <h3>❌ Известные проблемы</h3>
+    <ul>
+        <li>На некоторых OEM-сборках Windows (например, от Lenovo, HP, Dell) антивирусы могут блокировать выполнение скрипта.</li>
+        <li>В Windows N (без Media Feature Pack) могут возникнуть ошибки при вызове мультимедийных компонентов.</li>
+        <li>На Windows S Mode не удаётся запускать PowerShell-скрипты без переключения в полноценный режим.</li>
+    </ul>
+
+    <h3>🔄 Рекомендуемые действия перед запуском</h3>
+    <ol>
+        <li>Отключите временный антивирус или добавьте папку со скриптом в исключения.</li>
+        <li>Создайте точку восстановления системы.</li>
+    </ol>
+</section>
+
         <section id="как-использовать">
             <h2>🛠️ Как использовать</h2>
             <ol>
@@ -550,6 +589,7 @@
             <p>MIT License — вы можете свободно использовать, модифицировать и распространять этот скрипт при условии указания авторства.</p>
         </section>
     </div>
+<div id="progress-bar"></div>
 </main>
 </div>
 
@@ -599,6 +639,21 @@
     }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const progressBar = document.getElementById("progress-bar");
+
+        function updateProgressBar() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercent + "%";
+        }
+
+        window.addEventListener("scroll", updateProgressBar);
+    });
+</script>
 
 </body>
 </html>
