@@ -229,6 +229,45 @@ code {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Стили для ограничения ширины контейнера */
+.faq-container {
+    max-width: 600px; /* Можете изменить значение по необходимости */
+    margin: 0 auto;
+}
+
+/* Стили для темной темы */
+.dark-theme details {
+    background-color: var(--function-block-bg);
+    border-left: 5px solid var(--accent-color);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+}
+
+.dark-theme summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--accent-color);
+    padding-right: 20px;
+    position: relative;
+}
+
+.dark-theme summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.dark-theme details[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
 footer {
     position: relative;
     background-color: var(--footer-bg);
@@ -651,12 +690,43 @@ details[open] summary::after {
     </a>
 </section>
 
+<section id="changelog">
+
+    <div class="faq-container">
+        <details open>
+            <summary>v2.2.2 — 18 июня 2025 года</summary>
+            <ul>
+                <li>Добавлена почти полное по возможности отключение OneDrive</li>
+                <li>Еще больше служб отключено + 6 штук</li>
+                <li>Пока все ))</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>v2.1.1 — 16 мая 2025 года</summary>
+            <ul>
+                <li>Еще больше оптимизации</li>
+                <li>Улучшено еще 2 метода - за вами меньше следят
+соответственно, и быстрее работает</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>v2.0 — 9 мая 2025 года</summary>
+            <ul>
+                <li>Перелет был совершен огромный</li>
+                <li>Было улучшено 12 методов</li>
+            </ul>
+        </details>
+    </div>
+</section>
+
 <footer>
     &copy; 2025 Документация к скрипту оптимизации Windows | Автор: Zerio Command
     <div class="footer-icons">
-        <a href="https://vk.com/f_r_o_z_k_a "><img src="https://www.dropbox.com/scl/fi/mfqem8m9nv85m7q8zcss1/.png?rlkey=3dgm7afe49e2xzgm0qacppk2z&st=793qqd8v&dl=1 " alt="Вк"></a>
-        <a href="https://rutube.ru/channel/31871785/ "><img src="https://www.dropbox.com/scl/fi/hioolbejz658pxj9rkdyt/.png?rlkey=eyvoqzae2xxsbuw4tz3yegc0s&st=368j6o7d&dl=1 " alt="Рутуб"></a>
-        <a href="https://dzen.ru/f_r_o_z_k_a_z_e_r_o "><img src="https://www.dropbox.com/scl/fi/mca4b6o2g79i0vm448p1j/.png?rlkey=v0j18eh1i3mmk53t2lwoocrge&st=c5oflvdf&dl=1 " alt="Дзен"></a>
+        <a href="https://vk.com/f_r_o_z_k_a "target="_blank" rel="noopener noreferrer"><img src="https://www.dropbox.com/scl/fi/mfqem8m9nv85m7q8zcss1/.png?rlkey=3dgm7afe49e2xzgm0qacppk2z&st=793qqd8v&dl=1 " alt="Вк"></a>
+        <a href="https://rutube.ru/channel/31871785/ "target="_blank" rel="noopener noreferrer"><img src="https://www.dropbox.com/scl/fi/hioolbejz658pxj9rkdyt/.png?rlkey=eyvoqzae2xxsbuw4tz3yegc0s&st=368j6o7d&dl=1 " alt="Рутуб"></a>
+        <a href="https://dzen.ru/f_r_o_z_k_a_z_e_r_o "target="_blank" rel="noopener noreferrer"><img src="https://www.dropbox.com/scl/fi/mca4b6o2g79i0vm448p1j/.png?rlkey=v0j18eh1i3mmk53t2lwoocrge&st=c5oflvdf&dl=1 " alt="Дзен"></a>
     </div>
 </footer>
 
