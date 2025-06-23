@@ -9,7 +9,6 @@
     <meta property="og:description" content="Полный список функций PowerShell-скрипта для ускорения и повышения безопасности Windows.">
     <link rel="icon" href="https://www.dropbox.com/scl/fi/op1jl3uurbmvunlm32zxa/.png?rlkey=sz26xx4hctdr4ztewciqpry1h&st=bgnsm9s6&dl=1 " type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Prism.js CSS -->
 <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css"  rel="stylesheet" />
     <style>
         :root {
@@ -231,13 +230,11 @@ code {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Стили для ограничения ширины контейнера */
 .faq-container {
-    max-width: 600px; /* Можете изменить значение по необходимости */
+    max-width: 600px;
     margin: 0 auto;
 }
 
-/* Стили для темной темы */
 .dark-theme details {
     background-color: var(--function-block-bg);
     border-left: 5px solid var(--accent-color);
@@ -342,13 +339,12 @@ details[open] summary::after {
     transform: rotate(180deg);
 }
 
-/* === Кнопка "Наверх" === */
 #backToTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 9998;
-    display: none; /* Скрываем по умолчанию */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 40px;
@@ -378,7 +374,6 @@ details[open] summary::after {
 </head>
 <body>
 
-<!-- Кнопка "Наверх" -->
 <button id="backToTop" title="Наверх">&#8593;</button>
 
 <div style="display: flex; gap: 32px; align-items: flex-start; max-width: 1400px; margin: auto; padding: 20px 40px;">
@@ -855,17 +850,16 @@ details[open] summary::after {
 
         window.addEventListener("scroll", highlightCurrentSection);
         window.addEventListener("resize", highlightCurrentSection);
-        highlightCurrentSection(); // Вызов при загрузке
+        highlightCurrentSection();
     });
 </script>
 
-<!-- Prism.js JS -->
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script> 
 
 <script>
     async function fetchGitHubReleases() {
-        const repo = 'ZerioCommand/opz'; // Укажите ваш репозиторий
+        const repo = 'ZerioCommand/opz';
         const url = `https://api.github.com/repos/${repo}/releases`; 
 
         try {
