@@ -9,6 +9,8 @@
     <meta property="og:description" content="Полный список функций PowerShell-скрипта для ускорения и повышения безопасности Windows.">
     <link rel="icon" href="https://www.dropbox.com/scl/fi/op1jl3uurbmvunlm32zxa/.png?rlkey=sz26xx4hctdr4ztewciqpry1h&st=bgnsm9s6&dl=1 " type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css"  rel="stylesheet" />
     <style>
         :root {
     --bg-color: #f4f6f9;
@@ -339,10 +341,45 @@ details[open] summary::after {
     content: '−';
     transform: rotate(180deg);
 }
+
+/* === Кнопка "Наверх" === */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+    display: none; /* Скрываем по умолчанию */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: scale(1.1);
+    background-color: #155ea3;
+}
+
+#sidebar a.active {
+    background-color: #e6f0fa;
+    font-weight: bold;
+    color: var(--accent-color);
+}
     </style>
     
 </head>
 <body>
+
+<!-- Кнопка "Наверх" -->
+<button id="backToTop" title="Наверх">&#8593;</button>
 
 <div style="display: flex; gap: 32px; align-items: flex-start; max-width: 1400px; margin: auto; padding: 20px 40px;">
 <nav id="sidebar">
@@ -394,202 +431,202 @@ details[open] summary::after {
             <div class="function-block">
                 <h3>Disable-Service</h3>
                 <p>Отключает указанную службу и прекращает её выполнение.</p>
-                <pre><code>function Disable-Service { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-Service { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Clear-EventLogs</h3>
                 <p>Очищает журналы событий Windows.</p>
-                <pre><code>function Clear-EventLogs { ... }</code></pre>
+                <pre><code class="language-powershell">function Clear-EventLogs { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-Registry</h3>
                 <p>Оптимизирует параметры реестра для повышения производительности.</p>
-                <pre><code>function Optimize-Registry { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-Registry { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Apply-AdditionalRegistrySettings</h3>
                 <p>Применяет дополнительные настройки реестра для улучшения конфиденциальности.</p>
-                <pre><code>function Apply-AdditionalRegistrySettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Apply-AdditionalRegistrySettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-Telemetry</h3>
                 <p>Отключает службы сбора данных и телеметрии.</p>
-                <pre><code>function Optimize-Telemetry { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-Telemetry { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Clean-TempFiles</h3>
                 <p>Очищает временные файлы через Cleanmgr.exe.</p>
-                <pre><code>function Clean-TempFiles { ... }</code></pre>
+                <pre><code class="language-powershell">function Clean-TempFiles { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Configure-Security</h3>
                 <p>Отключает SMBv1, NetBIOS, ICMP, RDP и другие небезопасные протоколы.</p>
-                <pre><code>function Configure-Security { ... }</code></pre>
+                <pre><code class="language-powershell">function Configure-Security { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Configure-NetworkSettings</h3>
                 <p>Отключает IPv6, очищает ARP-кэш, настраивает DNS и LLTD.</p>
-                <pre><code>function Configure-NetworkSettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Configure-NetworkSettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Cleanup-PowerShellTemp</h3>
                 <p>Удаляет временные файлы (.tmp, .log и др.) из папок TEMP/TMP.</p>
-                <pre><code>function Cleanup-PowerShellTemp { ... }</code></pre>
+                <pre><code class="language-powershell">function Cleanup-PowerShellTemp { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Delete-SystemRestorePoints</h3>
                 <p>Удаляет старые точки восстановления системы.</p>
-                <pre><code>function Delete-SystemRestorePoints { ... }</code></pre>
+                <pre><code class="language-powershell">function Delete-SystemRestorePoints { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-UnnecessaryServices</h3>
                 <p>Отключает ненужные сетевые службы.</p>
-                <pre><code>function Disable-UnnecessaryServices { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-UnnecessaryServices { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-OneDrive</h3>
                 <p>Останавливает и отключает службу OneDrive.</p>
-                <pre><code>function Disable-OneDrive { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-OneDrive { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Flush-DNSCache</h3>
                 <p>Очищает кэш DNS.</p>
-                <pre><code>function Flush-DNSCache { ... }</code></pre>
+                <pre><code class="language-powershell">function Flush-DNSCache { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-BackgroundTasks</h3>
                 <p>Отключает фоновые задачи Windows.</p>
-                <pre><code>function Disable-BackgroundTasks { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-BackgroundTasks { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-XboxServices</h3>
                 <p>Отключает службы Xbox (XblAuthManager, XblGameSave и др.).</p>
-                <pre><code>function Disable-XboxServices { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-XboxServices { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Cleanup-TempDirectories</h3>
                 <p>Очищает временные каталоги (%TEMP%, %TMP% и др.).</p>
-                <pre><code>function Cleanup-TempDirectories { ... }</code></pre>
+                <pre><code class="language-powershell">function Cleanup-TempDirectories { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-TCPSettings</h3>
                 <p>Оптимизирует параметры TCP/IP.</p>
-                <pre><code>function Optimize-TCPSettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-TCPSettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-Hibernation</h3>
                 <p>Отключает гибернацию.</p>
-                <pre><code>function Disable-Hibernation { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-Hibernation { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Configure-PowerSettings</h3>
                 <p>Активирует схему максимальной производительности питания.</p>
-                <pre><code>function Configure-PowerSettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Configure-PowerSettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Cleanup-OldUpdates</h3>
                 <p>Очищает систему от старых обновлений Windows.</p>
-                <pre><code>function Cleanup-OldUpdates { ... }</code></pre>
+                <pre><code class="language-powershell">function Cleanup-OldUpdates { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-ScheduledTasks</h3>
                 <p>Отключает триггеры планировщика задач.</p>
-                <pre><code>function Disable-ScheduledTasks { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-ScheduledTasks { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Enable-TRIM</h3>
                 <p>Включает TRIM для SSD.</p>
-                <pre><code>function Enable-TRIM { ... }</code></pre>
+                <pre><code class="language-powershell">function Enable-TRIM { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-NetworkIO</h3>
                 <p>Оптимизирует сетевой ввод-вывод.</p>
-                <pre><code>function Optimize-NetworkIO { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-NetworkIO { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-DirectX</h3>
                 <p>Оптимизирует параметры DirectX для игр и графики.</p>
-                <pre><code>function Optimize-DirectX { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-DirectX { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-NetworkAdapters</h3>
                 <p>Настраивает параметры сетевых адаптеров для максимальной производительности.</p>
-                <pre><code>function Optimize-NetworkAdapters { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-NetworkAdapters { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-KernelMemorySettings</h3>
                 <p>Оптимизирует параметры ядра и управления памятью.</p>
-                <pre><code>function Optimize-KernelMemorySettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-KernelMemorySettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Remove-PowerSchemes</h3>
                 <p>Удаляет стандартные схемы управления питанием.</p>
-                <pre><code>function Remove-PowerSchemes { ... }</code></pre>
+                <pre><code class="language-powershell">function Remove-PowerSchemes { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-NvidiaTelemetry</h3>
                 <p>Отключает телеметрию NVIDIA.</p>
-                <pre><code>function Disable-NvidiaTelemetry { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-NvidiaTelemetry { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Apply-PrivacyAndTelemetrySettings</h3>
                 <p>Применяет настройки конфиденциальности и отключения телеметрии.</p>
-                <pre><code>function Apply-PrivacyAndTelemetrySettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Apply-PrivacyAndTelemetrySettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Enable-WindowsPhotoViewer</h3>
                 <p>Возвращает классический просмотрщик фотографий Windows Photo Viewer.</p>
-                <pre><code>function Enable-WindowsPhotoViewer { ... }</code></pre>
+                <pre><code class="language-powershell">function Enable-WindowsPhotoViewer { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Apply-PerformanceTweaks</h3>
                 <p>Применяет твики производительности (рабочий стол, время ожидания и др.).</p>
-                <pre><code>function Apply-PerformanceTweaks { ... }</code></pre>
+                <pre><code class="language-powershell">function Apply-PerformanceTweaks { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-FileSystemSettings</h3>
                 <p>Настраивает параметры файловой системы через fsutil.</p>
-                <pre><code>function Optimize-FileSystemSettings { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-FileSystemSettings { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-ScheduledTasksFromBatch</h3>
                 <p>Отключает задачи планировщика из списка.</p>
-                <pre><code>function Disable-ScheduledTasksFromBatch { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-ScheduledTasksFromBatch { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Disable-UnnecessaryServicesFromBatch</h3>
                 <p>Отключает дополнительные службы из списка.</p>
-                <pre><code>function Disable-UnnecessaryServicesFromBatch { ... }</code></pre>
+                <pre><code class="language-powershell">function Disable-UnnecessaryServicesFromBatch { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-NUMA</h3>
                 <p>Оптимизирует работу NUMA для многопроцессорных систем.</p>
-                <pre><code>function Optimize-NUMA { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-NUMA { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-Search</h3>
                 <p>Оптимизирует параметры поиска Windows.</p>
-                <pre><code>function Optimize-Search { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-Search { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Check-WindowsUpdates</h3>
                 <p>Проверяет наличие доступных обновлений Windows.</p>
-                <pre><code>function Check-WindowsUpdates { ... }</code></pre>
+                <pre><code class="language-powershell">function Check-WindowsUpdates { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Configure-BatteryFlyout</h3>
                 <p>Восстанавливает классическое окно отображения заряда батареи.</p>
-                <pre><code>function Configure-BatteryFlyout { ... }</code></pre>
+                <pre><code class="language-powershell">function Configure-BatteryFlyout { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Optimize-GameMode</h3>
                 <p>Включает и настраивает Game Mode для игр.</p>
-                <pre><code>function Optimize-GameMode { ... }</code></pre>
+                <pre><code class="language-powershell">function Optimize-GameMode { ... }</code></pre>
             </div>
             <div class="function-block">
                 <h3>Main</h3>
                 <p>Главная функция, которая запускает весь процесс оптимизации.</p>
-                <pre><code>function Main { ... }</code></pre>
+                <pre><code class="language-powershell">function Main { ... }</code></pre>
             </div>
         </section>
 
@@ -691,34 +728,8 @@ details[open] summary::after {
 </section>
 
 <section id="changelog">
-
-    <div class="faq-container">
-        <details open>
-            <summary>v2.2.2 — 18 июня 2025 года</summary>
-            <ul>
-                <li>Добавлена почти полное по возможности отключение OneDrive</li>
-                <li>Еще больше служб отключено + 6 штук</li>
-                <li>Пока все ))</li>
-            </ul>
-        </details>
-
-        <details>
-            <summary>v2.1.1 — 16 мая 2025 года</summary>
-            <ul>
-                <li>Еще больше оптимизации</li>
-                <li>Улучшено еще 2 метода - за вами меньше следят
-соответственно, и быстрее работает</li>
-            </ul>
-        </details>
-
-        <details>
-            <summary>v2.0 — 9 мая 2025 года</summary>
-            <ul>
-                <li>Перелет был совершен огромный</li>
-                <li>Было улучшено 12 методов</li>
-            </ul>
-        </details>
-    </div>
+    <p id="loading-changelog">Загрузка изменений с GitHub...</p>
+    <div id="changelog-content" class="faq-container"></div>
 </section>
 
 <footer>
@@ -800,6 +811,97 @@ details[open] summary::after {
             document.querySelector('#theme-toggle button').textContent = '☀️ Светлая тема';
         }
     });
+</script>
+
+<script>
+    // Показывать/скрывать кнопку при прокрутке
+    window.addEventListener('scroll', function () {
+        const btn = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            btn.style.display = 'flex';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+
+    // Прокрутка наверх при клике
+    document.getElementById('backToTop').addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main section");
+        const navLinks = document.querySelectorAll("#sidebar a");
+
+        function highlightCurrentSection() {
+            let index = sections.length;
+
+            while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+            navLinks.forEach(link => link.classList.remove("active"));
+            if (sections[index]) {
+                const targetId = sections[index].id;
+                const activeLink = document.querySelector(`#sidebar a[href="#${targetId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", highlightCurrentSection);
+        window.addEventListener("resize", highlightCurrentSection);
+        highlightCurrentSection(); // Вызов при загрузке
+    });
+</script>
+
+<!-- Prism.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script> 
+
+<script>
+    async function fetchGitHubReleases() {
+        const repo = 'ZerioCommand/opz'; // Укажите ваш репозиторий
+        const url = `https://api.github.com/repos/${repo}/releases`; 
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Ошибка при получении данных с GitHub');
+
+            const releases = await response.json();
+            const container = document.getElementById('changelog-content');
+            const loader = document.getElementById('loading-changelog');
+            loader.style.display = 'none';
+
+            if (releases.length === 0) {
+                container.innerHTML = '<p>Нет доступных релизов.</p>';
+                return;
+            }
+
+            releases.forEach(release => {
+                const html = `
+                    <details ${release.prerelease ? '' : 'open'}>
+                        <summary>${release.tag_name} — ${new Date(release.published_at).toLocaleDateString("ru-RU", { year: 'numeric', month: 'long', day: 'numeric' })}</summary>
+                        <ul>
+                            ${release.body.split('\n').filter(line => line.trim()).map(line => `<li>${line.replace(/- /, '')}</li>`).join('')}
+                        </ul>
+                    </details>`;
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                container.appendChild(tempDiv.firstElementChild);
+            });
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById('loading-changelog').textContent = 'Не удалось загрузить список изменений.';
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', fetchGitHubReleases);
 </script>
 
 </body>
