@@ -86,11 +86,16 @@
     background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    transition: background-color 0.3s ease;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 #theme-toggle button:hover {
@@ -246,7 +251,6 @@ code {
     margin: 0 auto;
 }
 
-/* Стили для темной темы */
 .dark-theme details {
     background-color: var(--function-block-bg);
     border-left: 5px solid var(--accent-color);
@@ -353,19 +357,19 @@ details[open] summary::after {
 
 #backToTop {
     position: fixed;
-    bottom: 20px;
+    bottom: 70px;
     right: 20px;
     z-index: 9998;
     display: none;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-color: var(--accent-color);
     color: white;
     border: none;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
@@ -380,6 +384,20 @@ details[open] summary::after {
     background-color: #e6f0fa;
     font-weight: bold;
     color: var(--accent-color);
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
 }
     </style>
     
@@ -767,19 +785,34 @@ details[open] summary::after {
         e.preventDefault();
     });
 </script>
-
-<div id="google_translate_element"></div>
-<div id="google_translate_element"></div>
 <div id="theme-toggle">
-    <button onclick="toggleTheme()">🌙 Темная тема</button>
+    <button onclick="toggleTheme()">🌙</button>
 </div>
 <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'ru',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-    }
+function googleTranslateElementInit() {
+    let userLang = navigator.language || navigator.userLanguage;
+    userLang = userLang.substring(0, 2).toLowerCase();
+
+    const supportedLanguages = ['en', 'ru', 'es', 'fr', 'de', 'it', 'pt', 'zh', 'ja', 'ko'];
+    const defaultLang = 'ru';
+
+    const targetLang = supportedLanguages.includes(userLang) ? userLang : defaultLang;
+
+    new google.translate.TranslateElement({
+        pageLanguage: 'ru',
+        includedLanguages: targetLang,
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+
+    setTimeout(() => {
+        const langSelector = document.querySelector('.goog-te-combo');
+        if (langSelector && langSelector.value !== targetLang) {
+            langSelector.value = targetLang;
+            langSelector.dispatchEvent(new Event('change'));
+        }
+    }, 2000);
+}
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
@@ -809,10 +842,10 @@ details[open] summary::after {
         document.body.classList.toggle('dark-theme');
         const button = document.querySelector('#theme-toggle button');
         if (document.body.classList.contains('dark-theme')) {
-            button.textContent = '☀️ Светлая тема';
+            button.textContent = '☀️';
             localStorage.setItem('theme', 'dark');
         } else {
-            button.textContent = '🌙 Темная тема';
+            button.textContent = '🌙';
             localStorage.setItem('theme', 'light');
         }
     }
@@ -821,7 +854,7 @@ details[open] summary::after {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
-            document.querySelector('#theme-toggle button').textContent = '☀️ Светлая тема';
+            document.querySelector('#theme-toggle button').textContent = '☀️';
         }
     });
 </script>
