@@ -50,10 +50,21 @@
     top: 0;
     left: 0;
     height: 4px;
-    background-color: var(--accent-color);
+    background: linear-gradient(90deg, #1a73e8, #6ec1e4);
     width: 0%;
     z-index: 9999;
     transition: width 0.2s ease-out;
+    box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+#progress-bar.active {
+    animation: pulse 1s infinite;
 }
 
 #google_translate_element {
@@ -235,6 +246,7 @@ code {
     margin: 0 auto;
 }
 
+/* Стили для темной темы */
 .dark-theme details {
     background-color: var(--function-block-bg);
     border-left: 5px solid var(--accent-color);
@@ -374,7 +386,7 @@ details[open] summary::after {
 </head>
 <body>
 
-<button id="backToTop" title="Наверх">&#8593;</button>
+<button id="backToTop">&#8593;</button>
 
 <div style="display: flex; gap: 32px; align-items: flex-start; max-width: 1400px; margin: auto; padding: 20px 40px;">
 <nav id="sidebar">
@@ -773,17 +785,23 @@ details[open] summary::after {
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const progressBar = document.getElementById("progress-bar");
+    const progressBar = document.getElementById("progress-bar");
 
-        function updateProgressBar() {
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = (scrollTop / scrollHeight) * 100;
-            progressBar.style.width = scrollPercent + "%";
+    function updateProgressBar() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrollPercent + "%";
+
+        if (scrollPercent > 0 && scrollPercent < 100) {
+            progressBar.classList.add("active");
+        } else {
+            progressBar.classList.remove("active");
         }
+    }
 
-        window.addEventListener("scroll", updateProgressBar);
-    });
+    window.addEventListener("scroll", updateProgressBar);
+});
 </script>
 
 <script>
@@ -809,7 +827,6 @@ details[open] summary::after {
 </script>
 
 <script>
-    // Показывать/скрывать кнопку при прокрутке
     window.addEventListener('scroll', function () {
         const btn = document.getElementById('backToTop');
         if (window.scrollY > 300) {
@@ -819,7 +836,6 @@ details[open] summary::after {
         }
     });
 
-    // Прокрутка наверх при клике
     document.getElementById('backToTop').addEventListener('click', function () {
         window.scrollTo({
             top: 0,
